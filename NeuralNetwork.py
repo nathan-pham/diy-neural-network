@@ -1,8 +1,8 @@
-# import packages
+# import libraries
 from scipy.special import expit
 import numpy as np
 
-from typing import List, Tuple
+from typing import List
 
 # NeuralNetwork class
 class NeuralNetwork:
@@ -13,7 +13,7 @@ class NeuralNetwork:
         # initialize variables
         self.inodes = input_nodes
         self.hnodes = hidden_nodes
-        self.o_nodes = output_nodes
+        self.onodes = output_nodes
         self.lr = learning_rate
 
         # initialize weights
@@ -28,6 +28,7 @@ class NeuralNetwork:
     def to_array(inputs: List[float]) -> np.array:
         return np.array(inputs, ndmin=2).T
 
+    # train the neural network
     def train(self, inputs_list: List[float], targets_list: List[float]) -> None:
 
         # convert inputs and targets to 2d arrays
@@ -51,7 +52,6 @@ class NeuralNetwork:
 
         # update weights for input -> hidden layer
         self.wih += self.r * np.dot((hidden_errors * hidden_outputs * (1 - hidden_outputs)), np.transpose(inputs))
-
 
     # query the neural network
     def predict(self, _inputs: List[float]) -> np.array:
