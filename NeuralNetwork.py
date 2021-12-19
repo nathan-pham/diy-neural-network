@@ -17,8 +17,8 @@ class NeuralNetwork:
         self.lr = learning_rate
 
         # initialize weights
-        self.wih = np.random.normal(0.0, hidden_nodes ** -0.5, (hidden_nodes, input_nodes))
-        self.who = np.random.normal(0.0, output_nodes ** -0.5, (output_nodes, hidden_nodes))
+        self.wih = np.random.normal(0.0, self.inodes ** -0.5, (self.hnodes, self.inodes))
+        self.who = np.random.normal(0.0, self.hnodes ** -0.5, (self.onodes, self.hnodes))
 
         # initialize activation function
         self.activation_function = lambda x : expit(x)

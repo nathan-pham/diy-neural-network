@@ -1,1 +1,5 @@
 __pycache__
+
+# don't want to upload the entire MNIST dataset
+dataset/mnist_test.csv
+dataset/mnist_train.csv

@@ -8,14 +8,14 @@ from typing import List
 class MNIST:
 
     # constructor
-    def __init__(self):
+    def __init__(self, test: bool = False) -> None:
 
         # initialize datasets
-        self.train_set = MNIST.read_csv("dataset/mnist_train_100.csv")
-        self.test_set = MNIST.read_csv("dataset/mnist_test_10.csv")
+        self.train_set = MNIST.read_csv(f"dataset/mnist_train{'_100' if test else ''}.csv")
+        self.test_set = MNIST.read_csv(f"dataset/mnist_test{'_10' if test else ''}.csv")
 
     # display a csv row as an image
-    def display_image(self, i: int = 0):
+    def display_image(self, i: int = 0) -> None:
 
         # initialize variables
         all_values = self.train_set[i].split(',')
@@ -25,8 +25,6 @@ class MNIST:
         plt.figure()
         plt.imshow(image_array, cmap="Greys", interpolation="None")
         plt.show()
-
-        return image_array
 
     # read a csv file
     @staticmethod
