@@ -15,8 +15,8 @@ class MNIST:
         self.test_set = MNIST.read_csv("dataset/mnist_test_10.csv")
 
     # display a csv row as an image
-    def display_image(self, i: int = 0) -> None:
-        
+    def display_image(self, i: int = 0):
+
         # initialize variables
         all_values = self.train_set[i].split(',')
         image_array = np.asfarray(all_values[1:]).reshape((28, 28))
@@ -25,6 +25,8 @@ class MNIST:
         plt.figure()
         plt.imshow(image_array, cmap="Greys", interpolation="None")
         plt.show()
+
+        return image_array
 
     # read a csv file
     @staticmethod

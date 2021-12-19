@@ -51,7 +51,7 @@ class NeuralNetwork:
         self.who += self.lr * np.dot((output_errors * final_outputs * (1 - final_outputs)), np.transpose(hidden_outputs))
 
         # update weights for input -> hidden layer
-        self.wih += self.r * np.dot((hidden_errors * hidden_outputs * (1 - hidden_outputs)), np.transpose(inputs))
+        self.wih += self.lr * np.dot((hidden_errors * hidden_outputs * (1 - hidden_outputs)), np.transpose(inputs))
 
     # query the neural network
     def predict(self, _inputs: List[float]) -> np.array:
